@@ -6,6 +6,7 @@ using ::testing::DefaultValue;
 class LocalCommunicatorTest : public ::testing::Test
 {
 public:
+
   virtual void SetUp()
   {
     opcode = 0;
@@ -26,6 +27,7 @@ public:
   std::shared_ptr<SpaMessage> message;
   uint16_t port;
   uint8_t opcode;
+
 };
 
 TEST_F(LocalCommunicatorTest, send__address_exists_in_table)

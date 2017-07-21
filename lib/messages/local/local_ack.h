@@ -7,6 +7,7 @@
 
 struct LocalAck
 {
+
   LocalAck(
       uint8_t version,
       uint8_t priority,
@@ -23,8 +24,10 @@ struct LocalAck
                                         op_LOCAL_ACK,
                                         sourcePort),
                         status(status) {}
-  LocalSpaMessage localSpaMessage;
+  
+	LocalSpaMessage localSpaMessage;
 
   uint8_t status; // The status of the acknowledgement
+
 };
 #endif

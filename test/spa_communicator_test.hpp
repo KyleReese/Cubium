@@ -5,6 +5,7 @@
 class SpaCommunicatorTest : public ::testing::Test
 {
 public:
+
   virtual void SetUp()
   {
     comms.push_back(
@@ -23,6 +24,7 @@ public:
   std::shared_ptr<SpaMessage> localMessage;
   std::shared_ptr<SpaMessage> foreignMessage;
   std::shared_ptr<SpaMessage> nonConnectedMessage;
+
 };
 
 TEST_F(SpaCommunicatorTest, send__to_same_network)
@@ -71,11 +73,14 @@ TEST_F(SpaCommunicatorTest, listen)
 class _SpaCommunicator : public SpaCommunicator
 {
 public:
+
   _SpaCommunicator(LogicalAddress currentAddress) : SpaCommunicator(currentAddress) {}
-  Com _selectCommunicator(LogicalAddress address, std::vector<Com> const &communicators)
+  
+	Com _selectCommunicator(LogicalAddress address, std::vector<Com> const &communicators)
   {
     return selectCommunicator(address, communicators);
   }
+
 };
 
 TEST_F(SpaCommunicatorTest, selectCommunicator)

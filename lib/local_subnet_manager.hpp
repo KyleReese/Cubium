@@ -19,6 +19,7 @@ void LSM_messageCallback(std::shared_ptr<LocalSubnetManager> lsm, cubiumServerSo
 class LocalSubnetManager : public SubnetManager, public std::enable_shared_from_this<LocalSubnetManager>
 {
 public:
+
   LocalSubnetManager(std::shared_ptr<SpaCommunicator> c, std::shared_ptr<RoutingTable<cubiumServerSocket_t>> rt)
   : SubnetManager(c)
   {
@@ -33,13 +34,16 @@ public:
       communicator->listen(callback);
     }
   }
+
   void receiveMessage(SpaMessage* message) {} // Note: Deprecated?
+
   friend void LSM_messageCallback(std::shared_ptr<LocalSubnetManager> lsm, cubiumServerSocket_t * sock);
+
 
 private:
   ComponentList components;
   std::shared_ptr<RoutingTable<cubiumServerSocket_t>> routingTable;
-};
 
+};
 
 #endif

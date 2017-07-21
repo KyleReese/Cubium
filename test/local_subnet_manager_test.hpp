@@ -7,13 +7,16 @@
 class LocalSubnetManagerTest : public ::testing::Test
 {
 public:
+
   virtual void SetUp()
   {
     opcode = op_LOCAL_HELLO;
     spaCom = std::make_shared<MockSpaCommunicator>();
   }
+
   uint8_t opcode;
   std::shared_ptr<MockSpaCommunicator> spaCom;
+
 };
 
 TEST_F(LocalSubnetManagerTest, add_component)

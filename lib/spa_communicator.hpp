@@ -40,6 +40,7 @@ public:
 
   std::shared_ptr<LocalCommunicator> getLocalCommunicator();
 
+
 protected:
   std::vector<std::shared_ptr<PhysicalCommunicator>> communicators;
 

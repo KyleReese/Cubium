@@ -31,8 +31,11 @@ struct LocalHello
       componentType(componentType) {}
 
   LocalSpaMessage localSpaMessage;
-  uint64_t uuid;
+
+	uint64_t uuid;
   // uint64_t uuidBack; // NOTE c++ standard does not have a 128 bit width integer
   uint8_t componentType;
+
 };
+
 #endif

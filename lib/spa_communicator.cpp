@@ -57,8 +57,12 @@ bool SpaCommunicator::send(SpaMessage* message, ssize_t len)
     handleFailure();
     return false;
   }
+
   if (!com->sendMsg(message, len))
-    std::cout << "DID NOT SEND" << std::endl;
+	{
+		std::cout << "DID NOT SEND" << std::endl;
+	}
+
   return true;
 }
 

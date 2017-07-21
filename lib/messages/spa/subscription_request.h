@@ -7,6 +7,7 @@
 
 struct SubscriptionRequest
 {
+
   SubscriptionRequest(
     LogicalAddress destination,
     LogicalAddress source,
@@ -72,4 +73,5 @@ struct SubscriptionRequest
   uint8_t  type;
 
 };
+
 #endif

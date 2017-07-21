@@ -10,7 +10,6 @@
 
 void LSM_messageCallback(std::shared_ptr<LocalSubnetManager> lsm, cubiumServerSocket_t* sock)
 {
-
   if (lsm->routingTable->isEmpty())
   {
     std::cout << "Nothing in the routing table." << std::endl;
@@ -41,7 +40,4 @@ void LSM_messageCallback(std::shared_ptr<LocalSubnetManager> lsm, cubiumServerSo
     auto newSock = lsm->routingTable->getPhysicalAddress(msg->spaHeader.destination);
     serverSocket_send(msg, sizeof(SubscriptionReply), &newSock);
   }
-
-
-
 }

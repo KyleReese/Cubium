@@ -21,6 +21,7 @@ struct Subscriber
 class Component
 {
 public:
+
   Component(std::shared_ptr<SpaCommunicator> communicator = nullptr, LogicalAddress address = LogicalAddress(0, 0))
     : communicator(communicator),
       address(address),
@@ -50,12 +51,10 @@ public:
     communicator->send(message, len);
   }
 
-
   void receiveMessage(SpaMessage*);
 
   void handleSubscriptionReply(SpaMessage*);
   void registerSubscriptionRequest(SpaMessage*);
-
 
   void subscribe(
       LogicalAddress producer,
@@ -63,12 +62,17 @@ public:
       uint32_t leasePeriod,
       uint16_t deliveryRateDivisor);
 
+
   std::shared_ptr<SpaCommunicator> communicator;
+
+
 protected:
+
   LogicalAddress address;
   uint8_t publishIter;
   uint16_t dialogId;
   std::vector<Subscriber> subscribers; // Should we make this a vector of pointers?
+
 };
 
 #endif

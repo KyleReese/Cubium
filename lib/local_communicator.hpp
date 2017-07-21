@@ -46,10 +46,9 @@ public:
   virtual void listen(std::function<void(cubiumServerSocket_t *)>);
   virtual void listen(std::function<void(cubiumClientSocket_t *)>);
 
-//  virtual void insertToRoutingTable(LogicalAddress log, uint32_t);
+  // virtual void insertToRoutingTable(LogicalAddress log, uint32_t);
 
   void setServerSock(cubiumServerSocket_t * s) { serverSock = s; }
-
 
   void printTable()
   {
@@ -66,8 +65,6 @@ public:
 
     std::cout << '\n';
   }
-
-
 
 
 protected:

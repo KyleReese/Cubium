@@ -10,7 +10,9 @@
 class _RoutingTable : public RoutingTable
 {
 public:
+
   std::map<LogicalAddress, uint32_t, LogicalAddressCompare> getTable() { return routingTable; }
+
 };
 
 TEST(RoutingTable, insert)

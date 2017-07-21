@@ -9,6 +9,7 @@ template <typename T>
 class RoutingTable
 {
 public:
+
   RoutingTable() {}
 
   RoutingTable(LogicalAddress log, T physAddr)
@@ -31,10 +32,11 @@ public:
     {
       if (i->first == log)
       {
-//        std::cout << "(RoutingTable::exists)Found Address with port" << i->second << std::endl;
+				// std::cout << "(RoutingTable::exists)Found Address with port" << i->second << std::endl;
         return true;
       }
     }
+
     return false;
   }
 
@@ -42,18 +44,10 @@ public:
 
   int size() { return routingTable.size(); }
 
-  /*
-    if (routingTable.find(log) == routingTable.end())
-    {
-      return false;
-    }
-    return true;
-  }
-*/
-
   virtual T getPhysicalAddress(LogicalAddress log)
   {
     std::cout << "Searching for address: " << log << "...\n";
+
     if (exists(log))
     {
       return routingTable[log];
@@ -70,8 +64,10 @@ public:
     return routingTable;
   }
 
+
 protected:
   std::map<LogicalAddress, T, LogicalAddressCompare> routingTable;
+
 };
 
 #endif

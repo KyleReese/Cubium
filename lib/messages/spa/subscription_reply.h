@@ -40,6 +40,7 @@ struct SubscriptionReply
   SpaMessage spaMessage;
   uint16_t dialogId;
   uint8_t replyType;
+
 };
 
 #endif

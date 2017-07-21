@@ -1,5 +1,6 @@
 #ifndef SPA_HEADER_H
 #define SPA_HEADER_H
+
 struct SpaHeader
 {
 
@@ -36,5 +37,7 @@ struct SpaHeader
   LogicalAddress source;
   uint16_t flags;
   uint8_t opcode;
+
 };
+
 #endif

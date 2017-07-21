@@ -13,6 +13,7 @@
 class SubnetManager
 {
 public:
+	
   SubnetManager(std::shared_ptr<SpaCommunicator> com)
   {
     communicator = com;
@@ -54,9 +55,11 @@ public:
   // template<typename Func>
   // void runTask(Func task);
 
+
 protected:
   static std::shared_ptr<SpaCommunicator> communicator;
   
   // TODO add component list to store data about component health
 };
+
 #endif

@@ -50,6 +50,7 @@ struct SpaMessage
   //LogicalAddress logicalAddress; //NOTE deprecated
 
   SpaHeader spaHeader;
+
 };
 
 #endif

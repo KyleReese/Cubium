@@ -27,16 +27,14 @@ public:
   {
     std::cout << "Component B initializing!" << '\n';
 
+		// creating local hello and sending to local subnet manager
     LocalHello hello(0, 0, la_LSM, la_CB, 0, 0, 0, 0);
 
     communicator->getLocalCommunicator()->clientConnect((SpaMessage*)&hello, sizeof(hello), [=](cubiumClientSocket_t* s){ messageCallback(ComponentB::shared_from_this(), s); });
+
+		// listening
     communicator->getLocalCommunicator()->clientListen(
-      [=](cubiumClientSocket_t* s){ messageCallback(ComponentB::shared_from_this(), s); });
-
-   // std::cout << "Sending message with opcode:\n";
-
-  //  communicator->send((SpaMessage*)&request);
- 
+      [=](cubiumClientSocket_t* s){ messageCallback(ComponentB::shared_from_this(), s); });	
   }
 
 };
@@ -47,6 +45,8 @@ void messageCallback(std::shared_ptr<ComponentB> comp, cubiumClientSocket_t* soc
   auto op = message->spaHeader.opcode;
   std::cout << "Received SpaMessage with opcode: " << (int)op << '\n';
 
+	// checking to see if received a subscription request from component A and
+	// then sending a subscription reply back through subnet manager
   if (op == op_SPA_SUBSCRIPTION_REQUEST)
   {
     SubscriptionReply reply(message->spaHeader.source, la_CB);

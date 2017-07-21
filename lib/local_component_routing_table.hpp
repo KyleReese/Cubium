@@ -3,7 +3,7 @@
 
 #include "logical_address.h"
 
-#define LOCAL_SUBNET_MANAGER_PORT 8888
+#define LOCAL_SUBNET_MANAGER_PORT 8888 // not right?
 
 /*
 class LocalComponentRoutingTable : public RoutingTable

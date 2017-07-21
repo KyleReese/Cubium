@@ -5,11 +5,14 @@
 class SpaMessageTest : public ::testing::Test
 {
 public:
+
   virtual void SetUp()
   {
     opcode = op_LOCAL_ACK;
   }
+
   uint8_t opcode;
+
 };
 
 TEST_F(SpaMessageTest, marshal)

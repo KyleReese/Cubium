@@ -4,7 +4,9 @@
 class SubnetManagerTest : public ::testing::Test
 {
 public:
+
   virtual void SetUp() {}
+
 };
 
 // TEST_F(SubnetManagerTest, constructor){

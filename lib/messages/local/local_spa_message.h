@@ -7,6 +7,7 @@
 
 struct LocalSpaMessage
 {
+
   LocalSpaMessage(
       uint8_t version,
       uint8_t priority,
@@ -20,5 +21,7 @@ struct LocalSpaMessage
 
   SpaMessage spaMessage;
   SpaLocalHeader spaLocalHeader;
+
 };
+
 #endif

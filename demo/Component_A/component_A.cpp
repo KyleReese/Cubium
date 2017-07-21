@@ -27,16 +27,20 @@ public:
   {
     std::cout << "Component A initializing!" << '\n';
 
+		// creating local hello and sending to local subnet manager
     LocalHello hello(0, 0, la_LSM, la_CA, 0, 0, 0, 0);
 
     communicator->getLocalCommunicator()->clientConnect((SpaMessage*)&hello, sizeof(hello), messageCallback);
 
+		// creating a subscription request to subscribe to component B
     SubscriptionRequest request(la_CB, la_CA, la_LSM);
 
     std::cout << "Sending message with opcode: " << (int)request.spaMessage.spaHeader.opcode << "\n";
 
+		// sending subscription request to subnet manager to be routed
     communicator->getLocalCommunicator()->clientSend((SpaMessage*)&request, sizeof(request));
  
+		// listen for any messages routed by subnet manager
     communicator->getLocalCommunicator()->clientListen(messageCallback);
   }
 
